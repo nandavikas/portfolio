@@ -1,0 +1,11 @@
+.Container {
+    /*"backgroundImage": url('https://wallpaperaccess.com/full/5651999.jpg');*/
+    background-color: #ffffff;
+    "height": 100vh;
+    "marginTop": -70px;
+    "fontSize": 50px;
+    "backgroundSize": cover;
+    "backgroundRepeat": no-repeat;
+}
+
+
