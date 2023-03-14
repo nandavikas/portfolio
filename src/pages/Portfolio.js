@@ -38,7 +38,7 @@ export default function ImgMediaCard() {
                             </CardContent>
                             <CardActions>
                                 <Button size="small">View More</Button>
-                                <Button size="small">Open GitHub</Button>
+                                <Button size="small" href={item.github} target="_blank">Open GitHub</Button>
                             </CardActions>
                         </Card>
                     </Grid>
