@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import Box from "@mui/material/Box";
 import NavBar from "../components/NavigationBar";
 import Footer from "../components/Footer";
@@ -9,7 +9,6 @@ import ReactTypingEffect from "react-typing-effect";
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from "@mui/material/Container";
-import {useSnackbar} from "notistack";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -31,8 +30,6 @@ export default function Contact() {
     const handleMessageChange = (event) => {
         setMessageDetails({ ...messageDetails, message: event.target.value });
     };
-
-    const notify = () => toast.success("Wow so easy!");
 
     const handleEmailIdChange = (event) => {
         const emailRegex =

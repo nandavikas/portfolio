@@ -8,8 +8,6 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
 import {portfolio} from "../constants/portfolio";
@@ -18,7 +16,9 @@ export default function ImgMediaCard() {
     return (
         <Box>
             <NavBar/>
-            <Grid container spacing={2} sx={{ marginTop: '10px' }}>
+            <Grid container spacing={2}
+                  sx={{ marginTop: '10px' }}
+                  justifyContent="center">
                 {portfolio.map((item,index) => (
                     <Grid item s={4} key={item.title+"-"+index}>
                         <Card sx={{ maxWidth: 345, margin: '10px' }}>
