@@ -5,7 +5,6 @@ import NavBar from './components/NavigationBar';
 import nanda from './assets/nanda.jpg';
 import './App.css';
 import Footer from "./components/Footer";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
