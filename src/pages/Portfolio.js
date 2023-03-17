@@ -17,7 +17,7 @@ export default function ImgMediaCard() {
         <Box>
             <NavBar/>
             <Grid container spacing={2}
-                  sx={{ marginTop: '10px' }}
+                  sx={{ marginTop: '10px', marginBottom: '50px' }}
                   justifyContent="center">
                 {portfolio.map((item,index) => (
                     <Grid item s={4} key={item.title+"-"+index}>

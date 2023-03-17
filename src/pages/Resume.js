@@ -23,7 +23,7 @@ export default function Resume() {
     return (
         <Box>
             <NavBar/>
-            <Timeline position="alternate">
+            <Timeline position="alternate" style={{ marginBottom: "60px" }}>
                 <TimelineItem>
                     <TimelineSeparator>
                         <TimelineConnector/>
@@ -104,7 +104,7 @@ export default function Resume() {
                         </TimelineDot>
                         <TimelineConnector/>
                     </TimelineSeparator>
-                    <TimelineContent sx={{py: '15px', px: 2}}>
+                    <TimelineContent sx={{py: '15px', px: 2, marginBottom: '20px'}}>
                         <Typography variant="h5" style={{color: '#304361'}}>
                             Yellow.ai <span style={{fontSize: '10px'}}>Dec'19-Sep'2021</span>
                         </Typography>
