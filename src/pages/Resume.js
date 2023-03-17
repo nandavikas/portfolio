@@ -61,7 +61,7 @@ export default function Resume() {
                         <TimelineDot  sx={{ color: "black" }} variant="outlined">
                             <img src={amazonLogo} className="Timeline-company-logo" alt="Amazon"/>
                         </TimelineDot>
-                        <TimelineConnector sx={{bgcolor: 'secondary.main'}}/>
+                        <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent sx={{py: '12px', px: 2}}>
                         <Typography variant="h5" style={{color: '#304361'}}>
@@ -98,7 +98,7 @@ export default function Resume() {
                 </TimelineItem>
                 <TimelineItem>
                     <TimelineSeparator>
-                        <TimelineConnector sx={{bgcolor: 'secondary.main', height: '200px'}}/>
+                        <TimelineConnector sx={{ height: '200px'}}/>
                         <TimelineDot sx={{ color: "black" }} variant="outlined">
                             <img src={yellowAiLogo} className="Timeline-company-logo" alt="Yellow.ai"/>
                         </TimelineDot>
