@@ -19,7 +19,7 @@ export const portfolio = [
     },
     {
         title: 'ChatBot',
-        description: "I created a chrome extension as a freelance project to a client. The extension takes a query from the user and answers it using the content in the active chrome tab.",
+        description: "Using web sockets in Node.js and a simple pytorch text classifier I created a chatbot that can do simple conversations like greetings, goodbyes, etc. This can be extended to do more complex conversations.",
         image: "https://t4.ftcdn.net/jpg/04/46/38/69/360_F_446386956_DiOrdcxDFWKWFuzVUCugstxz0zOGMHnA.jpg",
         github: "https://github.com/nandavikas/chatbot-using-svc"
     },
