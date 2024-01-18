@@ -4,11 +4,13 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import ArticleIcon from '@mui/icons-material/Article';
 
 export default function Footer() {
     const [value, setValue] = React.useState(0);
     const linkedInUrl = "https://www.linkedin.com/in/nandavikas/";
     const githubUrl = "https://github.com/nandavikas/"
+    const mediumUrl = "https://nandavikas16.medium.com/"
 
     return (
         <Box>
@@ -22,6 +24,7 @@ export default function Footer() {
             >
                 <BottomNavigationAction label="LinkedIn" style={{ color: "white" }} icon={<LinkedInIcon />} href={linkedInUrl}/>
                 <BottomNavigationAction label="GitHub" style={{ color: "white" }} icon={<GitHubIcon />} href={githubUrl}/>
+                <BottomNavigationAction label="Medium" style={{ color: "white" }} icon={<ArticleIcon />} href={mediumUrl}/>
             </BottomNavigation>
         </Box>
     );

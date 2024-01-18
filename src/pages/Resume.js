@@ -28,16 +28,55 @@ export default function Resume() {
                     <TimelineSeparator>
                         <TimelineConnector/>
                         <TimelineDot  sx={{ color: "black" }} variant="outlined">
+                            <img src={amazonLogo} className="Timeline-company-logo" alt="Amazon"/>
+                        </TimelineDot>
+                        <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent sx={{py: '12px', px: 2}}>
+                        <Typography variant="h5" style={{color: '#304361'}}>
+                            Circu Li-ion <span style={{fontSize: '10px'}}>Sep'23-Present</span>
+                        </Typography>
+                        <Typography style={{color: '#000000', fontSize: '16px', marginBottom: '35px'}}>
+                            Software Development Engineer Intern
+                        </Typography>
+                        <Box sx={{fontSize: '12px'}}>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> React.js<br/>
+                            <Rating name="read-only" value={4.5} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Typescript<br/>
+                            <Rating name="read-only" value={4.0} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Material UI<br/>
+                            <Rating name="read-only" value={5} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Tailwind CSS<br/>
+                            <Rating name="read-only" value={4.0} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Postgresql<br/>
+                            <Rating name="read-only" value={3.5} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> GraphQL<br/>
+                            <Rating name="read-only" value={4} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Google Cloud<br/>
+                            <Rating name="read-only" value={4} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Firebase<br/>
+                            <Rating name="read-only" value={4} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Terraform<br/>
+                            <Rating name="read-only" value={3.5} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Gitlab CI/CD<br/>
+                            <Rating name="read-only" value={4} precision={0.5} readOnly/><br/>
+                        </Box>
+                    </TimelineContent>
+                </TimelineItem>
+                <TimelineItem>
+                    <TimelineSeparator>
+                        <TimelineConnector/>
+                        <TimelineDot  sx={{ color: "black" }} variant="outlined">
                             <img src={oxariLogo} className="Timeline-company-logo" alt="Oxari"/>
                         </TimelineDot>
                         <TimelineConnector/>
                     </TimelineSeparator>
                     <TimelineContent sx={{py: '12px', px: 2}}>
                         <Typography variant="h5" style={{color: '#304361'}}>
-                            Oxari <span style={{fontSize: '10px'}}>Nov'22-Present</span>
+                            Oxari <span style={{fontSize: '10px'}}>Nov'22-Sep'23</span>
                         </Typography>
                         <Typography style={{color: '#000000', fontSize: '16px', marginBottom: '35px'}}>
-                            Working Student - Software Development Engineer
+                            Software Development Engineer
                         </Typography>
                         <Box sx={{fontSize: '12px'}}>
                             <FiberManualRecordIcon sx={{fontSize: '12px'}}/> React.js<br/>
