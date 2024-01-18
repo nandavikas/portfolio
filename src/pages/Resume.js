@@ -17,6 +17,7 @@ import Footer from "../components/Footer";
 import yellowAiLogo from "../assets/yellow_ai.png";
 import amazonLogo from "../assets/Amazon_icon.svg";
 import oxariLogo from "../assets/oxari_logo.jpeg";
+import circuliionLogo from "../assets/circu_li_ion_logo.jpeg";
 
 export default function Resume() {
 
@@ -28,7 +29,7 @@ export default function Resume() {
                     <TimelineSeparator>
                         <TimelineConnector/>
                         <TimelineDot  sx={{ color: "black" }} variant="outlined">
-                            <img src={amazonLogo} className="Timeline-company-logo" alt="Amazon"/>
+                            <img src={circuliionLogo} className="Timeline-company-logo" alt="Amazon"/>
                         </TimelineDot>
                         <TimelineConnector />
                     </TimelineSeparator>
@@ -58,6 +59,8 @@ export default function Resume() {
                             <Rating name="read-only" value={4} precision={0.5} readOnly/><br/>
                             <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Terraform<br/>
                             <Rating name="read-only" value={3.5} precision={0.5} readOnly/><br/>
+                            <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Docker<br/>
+                            <Rating name="read-only" value={4} precision={0.5} readOnly/><br/>
                             <FiberManualRecordIcon sx={{fontSize: '12px'}}/> Gitlab CI/CD<br/>
                             <Rating name="read-only" value={4} precision={0.5} readOnly/><br/>
                         </Box>
