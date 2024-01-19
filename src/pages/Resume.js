@@ -38,7 +38,7 @@ export default function Resume() {
                             Circu Li-ion <span style={{fontSize: '10px'}}>Sep'23-Present</span>
                         </Typography>
                         <Typography style={{color: '#000000', fontSize: '16px', marginBottom: '35px'}}>
-                            Software Development Engineer Intern
+                            Full-Stack Developer
                         </Typography>
                         <Box sx={{fontSize: '12px'}}>
                             <FiberManualRecordIcon sx={{fontSize: '12px'}}/> React.js<br/>
