@@ -11,17 +11,13 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
 import Dialog from '@mui/material/Dialog';
-import ListItemText from '@mui/material/ListItemText';
-import ListItem from '@mui/material/ListItem';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 
-import {portfolio} from "../constants/portfolio";
+import { portfolio } from "../constants/portfolio";
 
 import ChromeExtension from "../components/Projects/ChromeExtension";
 import ChatBot from "../components/Projects/ChatBot";
@@ -37,11 +33,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function ImgMediaCard() {
 
     const [open, setOpen] = React.useState(false);
-    const [title, setTitle] = React.useState("");
-    const handleClickOpen = (title) => {
-        setOpen(true);
-        setTitle(title);
-    };
+    const [title] = React.useState("");
+    // const handleClickOpen = (title) => {
+    //     setOpen(true);
+    //     setTitle(title);
+    // };
 
     const handleClose = () => {
         setOpen(false);
@@ -50,23 +46,25 @@ export default function ImgMediaCard() {
     const renderSwitch = (param) => {
         switch (param) {
             case 'Chrome extension':
-                return <ChromeExtension/>
+                return <ChromeExtension />
             case 'ChatApp':
-                return <ChatApp/>
+                return <ChatApp />
             case 'Task Manager':
-                return <TaskManager/>
+                return <TaskManager />
             case 'ChatBot':
-                return <ChatBot/>
+                return <ChatBot />
             case 'Sentiment Analysis':
-                return <SentimentAnalysis/>
+                return <SentimentAnalysis />
             case 'License Plate Detection':
-                return <LicensePlateDetection/>
+                return <LicensePlateDetection />
+            default:
+                return null;
         }
     }
 
     return (
-        <Box>
-            <NavBar/>
+        <Box sx={{ backgroundColor: '#f8f9fa', minHeight: '100vh', pb: 10 }}>
+            <NavBar />
             {open && <Dialog
                 fullScreen
                 open={open}
@@ -92,35 +90,114 @@ export default function ImgMediaCard() {
                     renderSwitch(title)
                 }
             </Dialog>}
-            <Grid container spacing={2}
-                  sx={{ marginTop: '10px', marginBottom: '50px' }}
-                  justifyContent="center">
-                {portfolio.map((item,index) => (
-                    <Grid item s={4} key={item.title+"-"+index}>
-                        <Card sx={{ maxWidth: 345, margin: '10px' }}>
+            <Grid container
+                spacing={{ xs: 3, sm: 3, md: 2 }}
+                sx={{
+                    marginTop: '40px',
+                    marginBottom: '80px',
+                    padding: { xs: '20px', sm: '30px', md: '20px', lg: '40px' },
+                    maxWidth: { md: '1200px', lg: '1400px' },
+                    margin: { md: '40px auto 80px' }
+                }}
+                justifyContent="center">
+                {portfolio.map((item, index) => (
+                    <Grid item xs={12} sm={6} md={4} key={item.title + "-" + index}>
+                        <Card
+                            sx={{
+                                maxWidth: { xs: '100%', sm: 400, md: '100%' },
+                                width: '100%',
+                                height: '100%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                borderRadius: '16px',
+                                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                                transition: 'all 0.3s ease-in-out',
+                                '&:hover': {
+                                    transform: 'translateY(-8px)',
+                                    boxShadow: '0 12px 24px rgba(0, 0, 0, 0.15)',
+                                },
+                                overflow: 'hidden'
+                            }}
+                        >
                             <CardMedia
                                 component="img"
-                                alt="green iguana"
-                                height="180"
+                                alt={item.title}
+                                height="200"
                                 image={item.image}
+                                sx={{
+                                    objectFit: 'cover',
+                                    transition: 'transform 0.3s ease-in-out',
+                                    '&:hover': {
+                                        transform: 'scale(1.05)',
+                                    }
+                                }}
                             />
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
+                            <CardContent sx={{
+                                flexGrow: 1,
+                                padding: '24px',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}>
+                                <Typography
+                                    gutterBottom
+                                    variant="h5"
+                                    component="div"
+                                    sx={{
+                                        fontWeight: 600,
+                                        color: '#2c3e50',
+                                        marginBottom: '12px',
+                                        fontSize: { xs: '1.25rem', sm: '1.5rem' }
+                                    }}
+                                >
                                     {item.title}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                    sx={{
+                                        lineHeight: 1.6,
+                                        color: '#34495e',
+                                        flexGrow: 1,
+                                        fontSize: '0.95rem'
+                                    }}
+                                >
                                     {item.description}
                                 </Typography>
                             </CardContent>
-                            <CardActions>
-                                {/*<Button size="small" onClick={(event) => { handleClickOpen(item.title) }}>View More</Button>*/}
-                                <Button size="small" href={item.github} target="_blank">Open GitHub</Button>
+                            <CardActions sx={{
+                                padding: '16px 24px 24px',
+                                justifyContent: 'flex-end'
+                            }}>
+                                <Button
+                                    size="medium"
+                                    href={item.github}
+                                    target="_blank"
+                                    variant="contained"
+                                    sx={{
+                                        backgroundColor: '#26a69a',
+                                        color: 'white',
+                                        borderRadius: '8px',
+                                        padding: '10px 24px',
+                                        textTransform: 'none',
+                                        fontWeight: 600,
+                                        fontSize: '0.95rem',
+                                        boxShadow: '0 2px 8px rgba(38, 166, 154, 0.3)',
+                                        '&:hover': {
+                                            backgroundColor: '#00897b',
+                                            boxShadow: '0 4px 12px rgba(38, 166, 154, 0.4)',
+                                            transform: 'translateY(-2px)',
+                                        },
+                                        transition: 'all 0.2s ease-in-out'
+                                    }}
+                                >
+                                    Open GitHub
+                                </Button>
                             </CardActions>
                         </Card>
                     </Grid>
                 ))}
             </Grid>
-            <Footer/>
+            <Footer />
         </Box>
     );
 }

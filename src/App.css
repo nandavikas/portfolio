@@ -14,23 +14,44 @@
 }
 
 .App-header {
-    background-image: url('assets/7178735_11910.jpg');
-    min-height: 88vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.App-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(38, 166, 154, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(44, 62, 80, 0.05) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .App-link {
-    color: #61dafb;
+    color: #26a69a;
 }
 
 .Profile-pic {
-    position: static;
-    border-radius: 60%;
-    height: 200px;
-    width: 200px;
+    position: relative;
+    border-radius: 50%;
+    height: clamp(160px, 20vw, 220px);
+    width: clamp(160px, 20vw, 220px);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    z-index: 1;
+    margin-bottom: clamp(16px, 2vw, 24px);
+}
+
+.Profile-pic:hover {
+    transform: scale(1.05);
 }

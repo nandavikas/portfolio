@@ -9,28 +9,20 @@ import Menu from '@mui/material/Menu';
 import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const pages = ['Home', 'Portfolio', 'Resume', 'Contact Me'];
+const pages = ['Home', 'Portfolio', 'Experience', 'Contact Me'];
 
 function NavBar() {
     const navigate = useNavigate();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
     };
 
     const handleItemClick = (selectedButton) => {
@@ -38,16 +30,24 @@ function NavBar() {
         const pagesToNavigate = {
             'Home': '/',
             'Portfolio': '/portfolio',
-            'Resume': '/resume',
+            'Experience': '/experience',
             'Contact Me': '/contact'
         }
         navigate(pagesToNavigate[selectedButton])
     }
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: "black" }}>
+        <AppBar
+            position="sticky"
+            elevation={0}
+            sx={{
+                backgroundColor: '#ffffff',
+                borderBottom: '1px solid #e8eaed',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.05)'
+            }}
+        >
             <Container maxWidth="xl">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters sx={{ py: 1.5 }}>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -56,7 +56,7 @@ function NavBar() {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
+                            sx={{ color: '#2c3e50' }}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -76,13 +76,50 @@ function NavBar() {
                             onClose={handleCloseNavMenu}
                             sx={{
                                 display: { xs: 'block', md: 'none' },
+                                '& .MuiPaper-root': {
+                                    borderRadius: 0,
+                                    boxShadow: 'none',
+                                    mt: 0,
+                                    width: '100vw',
+                                    maxWidth: '100vw',
+                                    left: '0 !important',
+                                    right: '0 !important',
+                                    border: 'none',
+                                    borderBottom: '1px solid #e8eaed',
+                                    overflow: 'hidden',
+                                    position: 'relative'
+                                }
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                <MenuItem
+                                    key={page}
+                                    onClick={() => {
+                                        handleCloseNavMenu();
+                                        handleItemClick(page);
+                                    }}
+                                    sx={{
+                                        py: 2,
+                                        px: 3,
+                                        justifyContent: 'center',
+                                        transition: 'all 0.2s ease',
+                                        '&:hover': {
+                                            backgroundColor: '#f5f7fa',
+                                            '& .MuiTypography-root': {
+                                                color: '#26a69a'
+                                            }
+                                        }
+                                    }}
+                                >
                                     <Typography
                                         textAlign="center"
-                                        onClick={(event) => { handleItemClick(page) }}
+                                        sx={{
+                                            color: '#2c3e50',
+                                            fontWeight: 500,
+                                            fontSize: '1rem',
+                                            width: '100%',
+                                            transition: 'all 0.2s ease'
+                                        }}
                                     >
                                         {page}
                                     </Typography>
@@ -91,12 +128,28 @@ function NavBar() {
                         </Menu>
                     </Box>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: 1 }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
-                                sx={{ my: 2, color: 'white', display: 'block', marginLeft: '50px', marginRight: '50px' }}
                                 onClick={(event) => { handleItemClick(page) }}
+                                sx={{
+                                    my: 1,
+                                    color: '#2c3e50',
+                                    display: 'block',
+                                    px: 3,
+                                    py: 1,
+                                    fontWeight: 500,
+                                    fontSize: '0.95rem',
+                                    textTransform: 'none',
+                                    borderRadius: '8px',
+                                    transition: 'all 0.2s ease',
+                                    '&:hover': {
+                                        backgroundColor: '#f5f7fa',
+                                        color: '#26a69a',
+                                        transform: 'translateY(-1px)'
+                                    }
+                                }}
                             >
                                 {page}
                             </Button>

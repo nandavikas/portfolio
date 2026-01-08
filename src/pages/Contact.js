@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Box from "@mui/material/Box";
 import NavBar from "../components/NavigationBar";
 import Footer from "../components/Footer";
+import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import MailIcon from '@mui/icons-material/Mail';
 import Button from "@mui/material/Button";
 import ReactTypingEffect from "react-typing-effect";
-import {createTheme, ThemeProvider} from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from "@mui/material/Container";
 import { ToastContainer, toast } from 'react-toastify';
@@ -49,82 +50,173 @@ export default function Contact() {
 
 
     return (
-        <Box>
-            <NavBar/>
+        <Box sx={{ backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
+            <NavBar />
             <ThemeProvider theme={theme}>
-                <Container component="main" maxWidth="xs">
-                    <CssBaseline/>
+                <Container component="main" maxWidth="sm">
+                    <CssBaseline />
                     <Box
                         component="form"
                         sx={{
-                            'width': '100%',
-                            'display': 'flex',
-                            'flex-direction': 'column',
-                            'align-items': 'center',
-                            'align-content': 'center',
-                            'justify-content': 'center',
-                            'min-height': '85vh',
-                            'vertical-align': 'middle',
+                            width: '100%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            minHeight: '85vh',
+                            py: 4
                         }}
                         noValidate
                         autoComplete="off"
                     >
-                        <MailIcon sx={{
-                            'fontSize': 70
-                        }}/>
-                        <ReactTypingEffect
-                            text={["Drop a message to collaborate"]}
-                            speed={100}
-                            eraseSpeed={100}
-                            eraseDelay={10000000}
-                            typingDelay={1000}
-                            cursorRenderer={cursor => <h4 style={{color: '#000000', margin: '0px'}}>{cursor}</h4>}
-                            displayTextRenderer={(text, i) => {
-                                return (
-                                    <h4 style={{color: '#575151', margin: '0px'}}>
-                                        {text.split('').map((char, i) => {
-                                            const key = `${i}`;
-                                            return (
-                                                <span
-                                                    key={key}
-                                                >{char}</span>
-                                            );
-                                        })}
-                                    </h4>
-                                );
-                            }}
-                        />
-                        <TextField id="name" label="Name" variant="filled" sx={{margin: '10px'}} onChange={handleNameChange}
-                                   fullWidth/>
-                        <TextField id="email" label="Email" variant="filled" sx={{margin: '10px'}} error={error}
-                                   onChange={handleEmailIdChange} fullWidth/>
-                        <TextField id="subject" label="Subject" variant="filled" sx={{margin: '10px'}} onChange={handleSubjectChange}
-                                   fullWidth/>
-                        <TextField id="message" label="Message" variant="filled" multiline maxRows={6} onChange={handleMessageChange}
-                                   minRows={4}
-                                   sx={{margin: '10px'}} fullWidth/>
-                        <Button
-                            type="button"
-                            id="submit"
-                            variant="contained"
-                            // onClick={(e) => onSubmit(e)}
-                            onClick={(e) => onSubmit() }
-                            sx={{
-                                width: '50%',
-                                margin: '10px',
-                                color: 'white',
-                                backgroundColor: 'black',
-                                ":hover": {
-                                    bgcolor: "#33312c",
-                                    color: "white"
-                                }
-                            }}>
-                            Submit
-                        </Button>
+                        <Box sx={{
+                            mb: 4,
+                            textAlign: 'center'
+                        }}>
+                            <MailIcon sx={{
+                                fontSize: 64,
+                                color: '#26a69a',
+                                mb: 2
+                            }} />
+                            <ReactTypingEffect
+                                text={["Drop a message to collaborate"]}
+                                speed={100}
+                                eraseSpeed={100}
+                                eraseDelay={10000000}
+                                typingDelay={1000}
+                                cursorRenderer={cursor => (
+                                    <Typography variant="h5" sx={{ color: '#2c3e50', fontWeight: 600 }}>
+                                        {cursor}
+                                    </Typography>
+                                )}
+                                displayTextRenderer={(text, i) => {
+                                    return (
+                                        <Typography variant="h5" sx={{ color: '#34495e', fontWeight: 500 }}>
+                                            {text.split('').map((char, i) => {
+                                                const key = `${i}`;
+                                                return (
+                                                    <span key={key}>{char}</span>
+                                                );
+                                            })}
+                                        </Typography>
+                                    );
+                                }}
+                            />
+                        </Box>
+                        <Box sx={{ width: '100%', maxWidth: 500 }}>
+                            <TextField
+                                id="name"
+                                label="Name"
+                                variant="outlined"
+                                sx={{
+                                    mb: 2,
+                                    '& .MuiOutlinedInput-root': {
+                                        borderRadius: '12px',
+                                        backgroundColor: '#ffffff',
+                                        '&:hover fieldset': {
+                                            borderColor: '#26a69a',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#26a69a',
+                                        }
+                                    }
+                                }}
+                                onChange={handleNameChange}
+                                fullWidth
+                            />
+                            <TextField
+                                id="email"
+                                label="Email"
+                                variant="outlined"
+                                sx={{
+                                    mb: 2,
+                                    '& .MuiOutlinedInput-root': {
+                                        borderRadius: '12px',
+                                        backgroundColor: '#ffffff',
+                                        '&:hover fieldset': {
+                                            borderColor: '#26a69a',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#26a69a',
+                                        }
+                                    }
+                                }}
+                                error={!error}
+                                onChange={handleEmailIdChange}
+                                fullWidth
+                            />
+                            <TextField
+                                id="subject"
+                                label="Subject"
+                                variant="outlined"
+                                sx={{
+                                    mb: 2,
+                                    '& .MuiOutlinedInput-root': {
+                                        borderRadius: '12px',
+                                        backgroundColor: '#ffffff',
+                                        '&:hover fieldset': {
+                                            borderColor: '#26a69a',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#26a69a',
+                                        }
+                                    }
+                                }}
+                                onChange={handleSubjectChange}
+                                fullWidth
+                            />
+                            <TextField
+                                id="message"
+                                label="Message"
+                                variant="outlined"
+                                multiline
+                                maxRows={6}
+                                onChange={handleMessageChange}
+                                minRows={4}
+                                sx={{
+                                    mb: 3,
+                                    '& .MuiOutlinedInput-root': {
+                                        borderRadius: '12px',
+                                        backgroundColor: '#ffffff',
+                                        '&:hover fieldset': {
+                                            borderColor: '#26a69a',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#26a69a',
+                                        }
+                                    }
+                                }}
+                                fullWidth
+                            />
+                            <Button
+                                type="button"
+                                id="submit"
+                                variant="contained"
+                                onClick={(e) => onSubmit()}
+                                sx={{
+                                    width: '100%',
+                                    py: 1.5,
+                                    color: 'white',
+                                    backgroundColor: '#26a69a',
+                                    borderRadius: '12px',
+                                    textTransform: 'none',
+                                    fontSize: '1rem',
+                                    fontWeight: 600,
+                                    boxShadow: '0 4px 12px rgba(38, 166, 154, 0.3)',
+                                    ":hover": {
+                                        backgroundColor: "#00897b",
+                                        boxShadow: '0 6px 16px rgba(38, 166, 154, 0.4)',
+                                        transform: 'translateY(-2px)'
+                                    },
+                                    transition: 'all 0.2s ease'
+                                }}>
+                                Submit
+                            </Button>
+                        </Box>
                     </Box>
                 </Container>
             </ThemeProvider>
-            <Footer/>
+            <Footer />
             <ToastContainer />
         </Box>
     );

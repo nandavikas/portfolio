@@ -20,11 +20,43 @@ export default function Footer() {
                 onChange={(event, newValue) => {
                     setValue(newValue);
                 }}
-                sx={{ backgroundColor: "#5e5d59", bottom: 0, position: "fixed", width: "100%" }}
+                sx={{ 
+                    backgroundColor: "#2c3e50",
+                    bottom: 0,
+                    position: "fixed",
+                    width: "100%",
+                    borderTop: '1px solid #34495e',
+                    boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
+                    '& .MuiBottomNavigationAction-root': {
+                        color: '#bdc3c7',
+                        '&.Mui-selected': {
+                            color: '#26a69a'
+                        },
+                        '&:hover': {
+                            color: '#26a69a',
+                            backgroundColor: 'rgba(38, 166, 154, 0.1)'
+                        }
+                    }
+                }}
             >
-                <BottomNavigationAction label="LinkedIn" style={{ color: "white" }} icon={<LinkedInIcon />} href={linkedInUrl}/>
-                <BottomNavigationAction label="GitHub" style={{ color: "white" }} icon={<GitHubIcon />} href={githubUrl}/>
-                <BottomNavigationAction label="Medium" style={{ color: "white" }} icon={<ArticleIcon />} href={mediumUrl}/>
+                <BottomNavigationAction 
+                    label="LinkedIn" 
+                    icon={<LinkedInIcon />} 
+                    href={linkedInUrl}
+                    target="_blank"
+                />
+                <BottomNavigationAction 
+                    label="GitHub" 
+                    icon={<GitHubIcon />} 
+                    href={githubUrl}
+                    target="_blank"
+                />
+                <BottomNavigationAction 
+                    label="Medium" 
+                    icon={<ArticleIcon />} 
+                    href={mediumUrl}
+                    target="_blank"
+                />
             </BottomNavigation>
         </Box>
     );

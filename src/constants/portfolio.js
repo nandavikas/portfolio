@@ -2,7 +2,7 @@ export const portfolio = [
     {
         title: 'Chrome extension',
         description: "I created a chrome extension using React.js as a freelance project to a client. The extension takes a query from the user and answers it using the content in the active chrome tab.",
-        image: "https://res.cloudinary.com/practicaldev/image/fetch/s--o7kQQBFO--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9yckn2vrpngy7io2bx2e.jpg",
+        image: "https://miro.medium.com/1*UGLzRt46iozue1HqHO91fA.jpeg",
         github: "https://github.com/nandavikas/question-answering-chrome-extension"
     },
     {
@@ -20,13 +20,13 @@ export const portfolio = [
     {
         title: 'ChatBot',
         description: "Using web sockets in Node.js and a simple pytorch text classifier I created a chatbot that can do simple conversations like greetings, goodbyes, etc. This can be extended to do more complex conversations.",
-        image: "https://t4.ftcdn.net/jpg/04/46/38/69/360_F_446386956_DiOrdcxDFWKWFuzVUCugstxz0zOGMHnA.jpg",
+        image: "https://logowik.com/content/uploads/images/chatbot-icon6684.jpg",
         github: "https://github.com/nandavikas/chatbot-using-svc"
     },
     {
         title: 'Sentiment Analysis',
         description: "Using BERT model, I created a sentiment analysis model that can classify a text into positive, negative or neutral on the Twitter dataset.",
-        image: "https://thehubbackend.com/media/64814-shutterstock_1073953772.jpg",
+        image: "https://cdn.prod.website-files.com/61436206a95bd10922bde560/66d2148fae0a661745b4fa35_Sentiment%20analysis.png",
         github: "https://github.com/nandavikas/sentiment-analysis-using-BERT"
     },
     {

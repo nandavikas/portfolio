@@ -1,0 +1,13 @@
+.Timeline-company-logo {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+    .Timeline-company-logo {
+        width: 28px;
+        height: 28px;
+    }
+}
+
