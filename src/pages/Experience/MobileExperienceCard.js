@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,11 +7,23 @@ import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Collapse from '@mui/material/Collapse';
 import Divider from '@mui/material/Divider';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import CompanyLogo from './CompanyLogo';
 import ExpandButton from './ExpandButton';
 import SkillItem from './SkillItem';
 
 export default function MobileExperienceCard({ experience, index, isExpanded, onToggle }) {
+    const [activeTab, setActiveTab] = useState(0); // 0 = responsibilities, 1 = skills
+    const prevExpandedRef = useRef(isExpanded);
+
+    // Reset to responsibilities when card is expanded (transition from collapsed to expanded)
+    useEffect(() => {
+        if (!prevExpandedRef.current && isExpanded) {
+            setActiveTab(0);
+        }
+        prevExpandedRef.current = isExpanded;
+    }, [isExpanded]);
     return (
         <Box sx={{ mb: 2, position: 'relative' }}>
             <Card
@@ -93,31 +105,85 @@ export default function MobileExperienceCard({ experience, index, isExpanded, on
 
                     <Collapse in={isExpanded} timeout="auto">
                         <Divider sx={{ my: 1 }} />
-                        <Typography
-                            variant="subtitle2"
+                        <Tabs
+                            value={activeTab}
+                            onChange={(e, newValue) => setActiveTab(newValue)}
+                            textColor="inherit"
                             sx={{
-                                color: '#7f8c8d',
-                                fontWeight: 600,
-                                fontSize: '0.6rem',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.5px',
-                                mb: 1
+                                mb: 2,
+                                '& .MuiTabs-indicator': {
+                                    backgroundColor: '#26a69a'
+                                },
+                                '& .MuiTab-root.Mui-selected': {
+                                    color: '#26a69a'
+                                }
                             }}
                         >
-                            Skills & Technologies
-                        </Typography>
-                        <Grid container spacing={0.5}>
-                            {experience.skills.map((skill, skillIndex) => (
-                                <Grid item xs={6} key={skillIndex}>
-                                    <SkillItem 
-                                        skill={skill} 
-                                        index={index} 
-                                        skillIndex={skillIndex} 
-                                        isMobile={true}
-                                    />
-                                </Grid>
-                            ))}
-                        </Grid>
+                            <Tab 
+                                label="Responsibilities" 
+                                sx={{
+                                    textTransform: 'none',
+                                    fontSize: '0.75rem',
+                                    fontWeight: 600,
+                                    color: activeTab === 0 ? '#26a69a' : '#7f8c8d',
+                                    minWidth: 'auto',
+                                    px: 1,
+                                    '&.Mui-selected': {
+                                        color: '#26a69a'
+                                    }
+                                }}
+                            />
+                            <Tab 
+                                label="Skills" 
+                                sx={{
+                                    textTransform: 'none',
+                                    fontSize: '0.75rem',
+                                    fontWeight: 600,
+                                    color: activeTab === 1 ? '#26a69a' : '#7f8c8d',
+                                    minWidth: 'auto',
+                                    px: 1,
+                                    '&.Mui-selected': {
+                                        color: '#26a69a'
+                                    }
+                                }}
+                            />
+                        </Tabs>
+                        {activeTab === 0 && experience.bulletPoints && experience.bulletPoints.length > 0 && (
+                            <Box component="ul" sx={{ 
+                                pl: 2.5, 
+                                pr: 1, 
+                                my: 0,
+                                '& li': {
+                                    color: '#34495e',
+                                    fontSize: '0.85rem',
+                                    lineHeight: 1.6,
+                                    mb: 1,
+                                    '&:last-child': {
+                                        mb: 0
+                                    }
+                                }
+                            }}>
+                                {experience.bulletPoints.map((point, pointIndex) => (
+                                    <Box component="li" key={pointIndex}>
+                                        {point}
+                                    </Box>
+                                ))}
+                            </Box>
+                        )}
+                        {activeTab === 1 && (
+                            <Grid container spacing={1}>
+                                {experience.skills.map((skill, skillIndex) => (
+                                    <Grid item xs={6} key={skillIndex}>
+                                        <SkillItem 
+                                            skill={skill} 
+                                            index={index} 
+                                            skillIndex={skillIndex} 
+                                            isMobile={true}
+                                        />
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        )}
                     </Collapse>
 
                     <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>

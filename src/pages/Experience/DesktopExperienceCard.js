@@ -67,30 +67,71 @@ export default function DesktopExperienceCard({ experience, index, isExpanded })
                         </Box>
                     </Box>
                     <Divider sx={{ my: 2 }} />
-                    <Typography
-                        variant="subtitle2"
-                        sx={{
-                            color: '#7f8c8d',
-                            fontWeight: 600,
-                            fontSize: '0.75rem',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                            mb: 1.5
-                        }}
-                    >
-                        Skills & Technologies
-                    </Typography>
-                    <Grid container spacing={1.5}>
-                        {experience.skills.map((skill, skillIndex) => (
-                            <Grid item xs={6} sm={4} md={3} key={skillIndex}>
-                                <SkillItem 
-                                    skill={skill} 
-                                    index={index} 
-                                    skillIndex={skillIndex} 
-                                    isMobile={false}
-                                />
+                    <Grid container spacing={3}>
+                        {experience.bulletPoints && experience.bulletPoints.length > 0 && (
+                            <Grid item xs={12} md={7}>
+                                <Typography
+                                    variant="subtitle2"
+                                    sx={{
+                                        color: '#7f8c8d',
+                                        fontWeight: 600,
+                                        fontSize: '0.75rem',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '1px',
+                                        mb: 1.5
+                                    }}
+                                >
+                                    Responsibilities
+                                </Typography>
+                                <Box component="ul" sx={{ 
+                                    pl: 2.5, 
+                                    pr: 1, 
+                                    my: 0,
+                                    '& li': {
+                                        color: '#34495e',
+                                        fontSize: '0.9rem',
+                                        lineHeight: 1.6,
+                                        mb: 1,
+                                        '&:last-child': {
+                                            mb: 0
+                                        }
+                                    }
+                                }}>
+                                    {experience.bulletPoints.map((point, pointIndex) => (
+                                        <Box component="li" key={pointIndex}>
+                                            {point}
+                                        </Box>
+                                    ))}
+                                </Box>
                             </Grid>
-                        ))}
+                        )}
+                        <Grid item xs={12} md={5}>
+                            <Typography
+                                variant="subtitle2"
+                                sx={{
+                                    color: '#7f8c8d',
+                                    fontWeight: 600,
+                                    fontSize: '0.75rem',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1px',
+                                    mb: 1.5
+                                }}
+                            >
+                                Skills & Technologies
+                            </Typography>
+                            <Grid container spacing={1}>
+                                {experience.skills.map((skill, skillIndex) => (
+                                    <Grid item xs={6} key={skillIndex}>
+                                        <SkillItem 
+                                            skill={skill} 
+                                            index={index} 
+                                            skillIndex={skillIndex} 
+                                            isMobile={false}
+                                        />
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </CardContent>
             </Card>
