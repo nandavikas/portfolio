@@ -17,7 +17,7 @@ const theme = createTheme();
 
 export default function Contact() {
 
-    const [error, setError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
     const [messageDetails, setMessageDetails] = useState();
 
     const handleNameChange = (event) => {
@@ -35,12 +35,11 @@ export default function Contact() {
     const handleEmailIdChange = (event) => {
         const emailRegex =
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        const isValid =
-            event.target.value && emailRegex.test(event.target.value)
-                ? true
-                : false;
-        setError(isValid);
-        setMessageDetails({ ...messageDetails, emailId: event.target.value });
+        const value = event.target.value;
+        // Show error only if there's a value and it's invalid
+        const hasError = value && !emailRegex.test(value);
+        setEmailError(hasError);
+        setMessageDetails({ ...messageDetails, emailId: value });
     };
 
     const onSubmit = () => {
@@ -71,37 +70,56 @@ export default function Contact() {
                     >
                         <Box sx={{
                             mb: 4,
-                            textAlign: 'center'
+                            textAlign: 'center',
+                            width: '100%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center'
                         }}>
-                            <MailIcon sx={{
-                                fontSize: 64,
-                                color: '#26a69a',
+                            <Box sx={{
+                                display: 'block',
+                                width: '100%',
                                 mb: 2
-                            }} />
-                            <ReactTypingEffect
-                                text={["Drop a message to collaborate"]}
-                                speed={100}
-                                eraseSpeed={100}
-                                eraseDelay={10000000}
-                                typingDelay={1000}
-                                cursorRenderer={cursor => (
-                                    <Typography variant="h5" sx={{ color: '#2c3e50', fontWeight: 600 }}>
-                                        {cursor}
-                                    </Typography>
-                                )}
-                                displayTextRenderer={(text, i) => {
-                                    return (
-                                        <Typography variant="h5" sx={{ color: '#34495e', fontWeight: 500 }}>
-                                            {text.split('').map((char, i) => {
-                                                const key = `${i}`;
-                                                return (
-                                                    <span key={key}>{char}</span>
-                                                );
-                                            })}
+                            }}>
+                                <MailIcon sx={{
+                                    fontSize: 64,
+                                    color: '#26a69a',
+                                    display: 'block',
+                                    mx: 'auto'
+                                }} />
+                            </Box>
+                            <Box sx={{
+                                width: '100%',
+                                minHeight: '2.5rem',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}>
+                                <ReactTypingEffect
+                                    text={["Drop a message to collaborate"]}
+                                    speed={100}
+                                    eraseSpeed={100}
+                                    eraseDelay={10000000}
+                                    typingDelay={1000}
+                                    cursorRenderer={cursor => (
+                                        <Typography variant="h5" sx={{ color: '#2c3e50', fontWeight: 600 }}>
+                                            {cursor}
                                         </Typography>
-                                    );
-                                }}
-                            />
+                                    )}
+                                    displayTextRenderer={(text, i) => {
+                                        return (
+                                            <Typography variant="h5" sx={{ color: '#34495e', fontWeight: 500 }}>
+                                                {text.split('').map((char, i) => {
+                                                    const key = `${i}`;
+                                                    return (
+                                                        <span key={key}>{char}</span>
+                                                    );
+                                                })}
+                                            </Typography>
+                                        );
+                                    }}
+                                />
+                            </Box>
                         </Box>
                         <Box sx={{ width: '100%', maxWidth: 500 }}>
                             <TextField
@@ -141,7 +159,7 @@ export default function Contact() {
                                         }
                                     }
                                 }}
-                                error={!error}
+                                error={emailError}
                                 onChange={handleEmailIdChange}
                                 fullWidth
                             />
