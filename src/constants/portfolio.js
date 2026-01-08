@@ -1,4 +1,19 @@
+import aiAgentImage from '../assets/ai_agent.png';
+import easyOnlineToolsImage from '../assets/eot_hero.png';
+
 export const portfolio = [
+    {
+        title: 'AI Job Agent',
+        description: "A comprehensive SaaS platform that acts as an AI career copilot and job application AI Agent. It features a Chrome extension for tracking applications that works with hand in hand with the web app. It has features like automatic job application, Cover letter generation, job tracker.",
+        image: aiAgentImage,
+        github: "https://ai-jobagent.com"
+    },
+    {
+        title: 'Easy Online Tools',
+        description: "A centralized hub of free, browser-based utilities for developers and casual users. It aggregates various productivity tools—such as format converters, string manipulation utilities, and data generators—into a single, easy-to-use interface.",
+        image: easyOnlineToolsImage,
+        github: "https://easyonlinetools.org"
+    },
     {
         title: 'Chrome extension',
         description: "I created a chrome extension using React.js as a freelance project to a client. The extension takes a query from the user and answers it using the content in the active chrome tab.",

@@ -190,7 +190,7 @@ export default function ImgMediaCard() {
                                         transition: 'all 0.2s ease-in-out'
                                     }}
                                 >
-                                    Open GitHub
+                                    {item.github && item.github.includes('github.com') ? 'Open GitHub' : 'View Project'}
                                 </Button>
                             </CardActions>
                         </Card>
