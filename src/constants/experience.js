@@ -89,7 +89,7 @@ export const workExperience = [
     },
     {
         companyName: "Amazon",
-        dateRange: "May'22-Nov'2022",
+        dateRange: "May'22-Nov'22",
         jobTitle: "Software Engineer (Internship)",
         location: "Luxembourg",
         logo: amazonLogo,
@@ -118,7 +118,7 @@ export const workExperience = [
     },
     {
         companyName: "Yellow.ai",
-        dateRange: "Dec'19-Sep'2021",
+        dateRange: "Dec'19-Sep'21",
         jobTitle: "Software Engineer",
         location: "Bengaluru",
         logo: yellowAiLogo,
